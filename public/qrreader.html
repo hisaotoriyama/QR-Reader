@@ -25,10 +25,24 @@
   <!-- 処理用 -->
   <canvas id="picture" width="300" height="200"></canvas>
 
-  <!-- 読み取り結果 -->
-  <div id="result">
-    <small>※ここに読み取り結果が表示されます※</small>
+  <div id="app">
+
+      
+      <!-- 読み取り結果 from 88行-->
+      <div id="result">
+        <script>
+          let QRData = code.data
+        </script>
+        <p v-model="QRData" >※ここに読み取り結果が表示されます※</p>
+      </div>
+      <table class="table" class="itemList">
+        <button type="button" v-on:click="dataexport">
+      </table>
+  <pre>{{QRData}}</pre>
+  
   </div>
+  
+  
 </section>
 
 <script src="jsQR.min.js"></script>
@@ -165,5 +179,10 @@ function escapeHTML(str){
   return(result);
 }
 </script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="qrreader.js"></script>
+
 </body>
 </html>

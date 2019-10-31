@@ -26,15 +26,8 @@
   <canvas id="picture" width="300" height="200"></canvas>
 
   <div id="app">
-
-      
       <!-- 読み取り結果 from 88行-->
-      <div id="result">
-        <script>
-          let QRData = code.data
-        </script>
-        <p v-model="QRData" >※ここに読み取り結果が表示されます※</p>
-      </div>
+      <input id="result" v-model="QRData" />
       <table class="table" class="itemList">
         <button type="button" v-on:click="dataexport">
       </table>
@@ -147,7 +140,10 @@ function drawLine(ctx, pos, options={color:"blue", size:5}){
  * @return {void}
  */
 function setQRResult(id, data){
-  $(id).innerHTML = escapeHTML(data);
+  //$(id).innerHTML = escapeHTML(data);
+  console.log(data)
+  console.log(id)
+  $(id).value = escapeHTML(data)
 }
 
 /**

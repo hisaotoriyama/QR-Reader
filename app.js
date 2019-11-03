@@ -2,10 +2,8 @@ let express = require('express')
 let app = express()
 
 app.use(express.static('public'));
-console.log("test")
 // start application
-app.listen(3000)
-/*
+//app.listen(3000)
 var https = require('https');
 var fs = require('fs');
 var ssl_server_key = 'server_key.pem';
@@ -19,4 +17,3 @@ var options = {
  
 let server = https.createServer(options, app)
 server.listen(port);
-*/

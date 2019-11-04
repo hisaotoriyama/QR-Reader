@@ -1,10 +1,10 @@
 var app = new Vue({
     el: "#app",
     data: {
-        QRData: ""
+        globalData: globalData
     },
     methods: {
         dataexport: function() {
-            console.log(this.QRData)
+            console.log(this.globalData.QRdata)
       }
     }})

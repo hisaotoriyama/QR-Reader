@@ -27,11 +27,11 @@
 
   <div id="app">
       <!-- 読み取り結果 from 88行-->
-      <input id="result" v-model="QRData" />
+      <input id="result" v-model="globalData.QRdata" />
       <table class="table" class="itemList">
         <button type="button" v-on:click="dataexport">
       </table>
-  <pre>{{QRData}}</pre>
+  <pre>{{globalData.QRdata}}</pre>
   
   </div>
   
@@ -43,6 +43,7 @@
 const video  = $("#camera");     // === document.querySelector("#camera");
 const canvas = $("#picture");    // === document.querySelector("#picture");
 const ctx = canvas.getContext("2d");
+var globalData = { QRdata: "" };
 
 window.onload = () => {
   /** カメラ設定 */
@@ -143,7 +144,7 @@ function setQRResult(id, data){
   //$(id).innerHTML = escapeHTML(data);
   console.log(data)
   console.log(id)
-  $(id).value = escapeHTML(data)
+  globalData.QRdata = escapeHTML(data)
 }
 
 /**

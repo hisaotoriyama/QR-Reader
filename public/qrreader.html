@@ -13,6 +13,8 @@
     #result { border: 1px solid gray; width:300px; height:200px; padding:10px;}
     small { color:gray; }
   </style>
+
+
 </head>
 <body>
 
@@ -29,7 +31,15 @@
       <!-- 読み取り結果 from 88行-->
       <input id="result" v-model="globalData.QRdata" />
       <table class="table" class="itemList">
-        <button type="button" v-on:click="dataexport">
+        <button type="button" v-on:click="docsdataexport">Document Reader</button>
+      </table>
+  <pre>{{globalData.QRdata}}</pre>
+
+  <div id="app">
+      <!-- 読み取り結果 from 88行-->
+      <input id="result" v-model="globalData.QRdata" />
+      <table class="table" class="itemList">
+        <button type="button" v-on:click="locdataexport">Location Reader</button>
       </table>
   <pre>{{globalData.QRdata}}</pre>
   

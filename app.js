@@ -1,7 +1,15 @@
 let express = require('express')
+let Res = require('express-resource')
+let bodyParser = require('body-parser');
 let app = express()
 
+app.use(bodyParser.urlencoded({
+        extended: true
+    }));
+app.use(bodyParser.json());
+
 app.use(express.static('public'));
+app.resource('addstoreditems', require('./controllers/addstoreditem'), {id: 'id'})
 // start application
 //app.listen(3000)
 var https = require('https');
@@ -17,3 +25,4 @@ var options = {
  
 let server = https.createServer(options, app)
 server.listen(port);
+

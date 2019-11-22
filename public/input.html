@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+    <!-- <script src="jquery.min.js"></script>
+    <script src="jquery.qrcode.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <pre>{{$data.newdocument}}</pre> -->
+      <div class="row" >
+          <table  class="table table table-striped ml-5 mt-5" >
+                <th>Operation</th>
+                <th>ID</th>
+                <th>Document</th>
+                <th>StoragePlace</th>
+                <th>OriginalUser</th>
+                <th>LatestUser</th>
+
+          <tr>                
+                <td>Create</td>
+                <td>Auto Id</td>
+                <td><input type="text" class="form-control" v-model="newdocument" ></td>
+                <td><input type="text" class="form-control" v-model="newstorageplace" ></td>
+                <td><input type="text" class="form-control" v-model="neworiginaluser" ></td>
+                <td><input type="text" class="form-control" v-model="newlatestuser" ></td>
+          </tr>
+          <tr>                
+              <td>Select</td>
+              <td><input type="text" class="form-control" v-model="selectedid" ></td>
+              <td><input type="text" class="form-control" v-bind:value="selectedoriginaluser"></td>
+              <td><input type="text" class="form-control" v-bind:value="selecteddocument"></td>
+              <td><input type="text" class="form-control" v-bind:value="selectedstorageplace"></td>
+              <td><input type="text" class="form-control" v-bind:value="selectedlatestuser"></td>
+          </tr>
+          <tr>                
+              <td>Modify</td>
+              <td><input type="text" class="form-control" v-model="modifiedid" ></td>
+              <td>Content</td>
+              <td><input type="text" class="form-control" v-model="modifiedstorageplace"></td>
+              <td>Original User</td>
+              <td><input type="text" class="form-control" v-model="modifiedlatestuser" ></td>
+          </tr>
+          <tr v-for="storeditem in storeditems">
+                <th></th>
+                <th>{{storeditem.id}}</th>
+                <th>{{storeditem.document}}</th>
+                <th>{{storeditem.storageplace}}</th>
+                <th>{{storeditem.originaluser}}</th>
+                <th>{{storeditem.latestuser}}</th>
+          </tr>
+          </table>
+          <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="registerandqr">QR Create</button>
+          <!-- <tr><td v-bind:id="idqr"></td></tr> -->
+          <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="readall">Read All</button>
+          <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectdocs">Select Id</button>
+          <button type="button" class="btn btn-outline-primary ml-5 mt-5" v-on:click="selectedmodify">Modify</button>  
+
+
+      </div>
+      
+      <!-- <pre>{{selecteddocs.storageloc}}</pre> -->
+
+      <div class="row" >
+        <div id="idqr" class="ml-5 mt-5"></div>
+      </div>
+
+    </div>
+
+    <script src="./js/input.js"></script>
+  
+    <div  id=idqr></div>
+     </body>
+
+</html>

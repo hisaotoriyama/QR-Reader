@@ -25,16 +25,14 @@ var app = new Vue({
                         };
                         const d = {
                             headers: headers,
-                            method: "GET",
-                            // body: JSON.stringify(data1) 
+                            method: "GET"
                             };
             
                         var self = this;
                         return fetch('https://localhost:3000/addstoreditems/'+j.id, d)
-                        // →そもそも通信がうまくいっていない？。SSLエラーの表示。
                         .then((res) =>                        
                             res.json()
-                        .then((r)=>  {self.selectedqrcontent = JSON.stringify(r);
+                        .then((r)=>  {self.selectedqrcontent = r;
                         // →selectedqrcontentでセレクトし、上記dataで格納しておきたい。どのように？
                         console.log(self.selectedqrcontent);
                         }))    

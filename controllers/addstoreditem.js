@@ -23,14 +23,16 @@ module.exports = {
     },
 
     show: (req, res) => {
-        // console.log(req.params.id)
+        console.log(req.params.id)
         db.storeditem.findAll({
             where:{
                 id: req.params.id
             }
         })            
         .then((d) => {
+            console.log(d)
             let p = d[0]
+            // console.log(p)
             res.json({
                 id: p.id,
                 originaluser: p.originaluser,
@@ -38,18 +40,18 @@ module.exports = {
                 storageplace: p.storageplace,
                 latestuser: p.latestuser
             })
-            /*
-            let data = d.map((p) => {
-                  return {
-                    id: p.id,
-                    originaluser: p.originaluser,
-                    content: p.content,
-                    storageloc: p.storageloc,
-                    latestuser: p.latestuser
-                }
-            })
-            */
-            res.json(data)
+            
+            // mapは全て出てしまうので配列として複数行が出てしまう。
+            // しかし結局はidはアイデンティカルなので一つしか選ばれず、よって絶対に出現する1行だけ取り出すこととした。
+            // let data = d.map((p) => {
+            //       return {
+            //         id: p.id,
+            //         originaluser: p.originaluser,
+            //         content: p.content,
+            //         storageloc: p.storageloc,
+            //         latestuser: p.latestuser
+            //     }
+            // })
         })
     },
 

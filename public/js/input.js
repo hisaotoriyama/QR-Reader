@@ -15,7 +15,8 @@ var app = new Vue({
         selectedoriginaluser:"",
         selecteddocument:"",
         selectedstorageplace:"",
-        selectedlatestuser:""
+        selectedlatestuser:"",
+        // qrdata:""
     },
     
     methods: {
@@ -55,12 +56,10 @@ var app = new Vue({
         },
 
         qrcreation:function(i){
-          // qr発行されない？
-          console.log(i)
             let idqr = i.id;
             console.log(idqr);
-            $('#idqr').html("");
-            $('#idqr').qrcode({ width: 90, height: 90, text: idqr})
+            $('#qrprint').html("");
+            $('#qrprint').qrcode({ width: 90, height: 90, text: '{"dorl":"d","id":idqr}'})
           },
 
         selectedmodify:function() {
@@ -119,12 +118,8 @@ var app = new Vue({
             // console.log(this.selectedid);
             fetch('/addstoreditems/' + this.selectedid, d)
             .then((r) => {
-              console.log(r);
               r.json().then((j) => {
-                // このJが読めない？
                 console.log(j);
-                // console.log(j[0].id);
-
                 self.selectedoriginaluser=j.originaluser;
                 self.selecteddocument=j.document;
                 self.selectedstorageplace=j.storageplace;

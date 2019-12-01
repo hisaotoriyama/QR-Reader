@@ -5,11 +5,11 @@ let db = require('../models/index')
 // REST controller definitions
 module.exports = {
     index: (req, res) => {
-        db.storeditem.findAll({ include: [db.user]})            
+        db.storeditem.findAll(
+            // { include: [db.user]}
+            )            
         .then((d) => {
             let data = d.map((p) => {
-                console.log('----')
-                console.log(p)
                   return {
                     id: p.id,
                     originaluser: p.originaluser,
@@ -30,7 +30,7 @@ module.exports = {
             }
         })            
         .then((d) => {
-            console.log(d)
+            // console.log(d)
             let p = d[0]
             // console.log(p)
             res.json({
@@ -62,9 +62,9 @@ module.exports = {
           storageplace:Number(req.body.storageplace),
           latestuser:Number(req.body.latestuser),
         }
-        console.log(data)
+        // console.log(data)
         db.storeditem.create(data).then((p)=>{
-            console.log(p)
+            // console.log(p)
           res.json({
               id: p.id,
               originaluser: p.originaluser,

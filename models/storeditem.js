@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     storeditem.belongsTo(models.content, {
       foreignKey: 'document',
       onDelete:'CASCADE',
-
     })
+    
   };
   return storeditem;
 };

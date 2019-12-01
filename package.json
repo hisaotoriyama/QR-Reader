@@ -17,12 +17,15 @@
   },
   "homepage": "https://github.com/hisaotoriyama/QR-Reader#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0"
   },
   "devDependencies": {
     "express-resource": "^1.0.0",
     "mysql": "^2.17.1",
     "mysql2": "^2.0.1",
-    "sequelize": "^5.21.2"
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1"
   }
 }
